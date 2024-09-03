@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maid Hiring Service</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <ul class="navbar">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">How It Works</a></li>
+            <li><a href="#">What We Offer</a></li>
+            <li><a href="#">Why Us</a></li>
+            <li><a href="#">Trust Factors</a></li>
+            <li><a href="#">Our Charges</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Upload Maid Profile -->
+    <section class="upload-profile">
+        <h2>Upload Your Profile</h2>
+        <form id="upload-form">
+            <label for="maid-image">Upload Image:</label>
+            <input type="file" id="maid-image" accept="image/*" required>
+
+            <label for="maid-name">Name:</label>
+            <input type="text" id="maid-name" required>
+
+            <label for="maid-location">Location:</label>
+            <input type="text" id="maid-location" required>
+
+            <label for="maid-services">Services:</label>
+            <input type="text" id="maid-services" required>
+
+            <label for="maid-experience">Experience (Years):</label>
+            <input type="number" id="maid-experience" required>
+
+            <label for="maid-languages">Languages:</label>
+            <input type="text" id="maid-languages" required>
+
+            <button type="submit">Post Profile</button>
+        </form>
+    </section>
+
+    <!-- Maid Profiles -->
+    <section class="maid-profiles">
+        <!-- Profiles will be dynamically added here -->
+    </section>
+
+    <!-- Profile Details -->
+    <section id="profile-details" class="profile-details hidden">
+        <div class="profile-image">
+            <img id="maid-profile-image" src="" alt="Maid Profile Image">
+        </div>
+        <div class="profile-info">
+            <h2 id="maid-profile-name"></h2>
+            <p id="maid-profile-location"></p>
+            <p id="maid-profile-services"></p>
+            <p id="maid-profile-experience"></p>
+            <p id="maid-profile-languages"></p>
+            <button id="hire-button">I want to hire</button>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <div id="contact-form" class="contact-form hidden">
+        <h2>Contact Form</h2>
+        <form>
+            <label for="contact-name">Name:</label>
+            <input type="text" id="contact-name" required>
+
+            <label for="contact-email">Email:</label>
+            <input type="email" id="contact-email" required>
+
+            <label for="contact-message">Message:</label>
+            <textarea id="contact-message" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+      <!-- logout -->
+    <button onclick="logout()">Logout</button>
+
+     <!-- Function to logout the user -->
+     <script>
+        function logout() {
+            window.location.href = 'login.html';
+        }
+    </script>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>

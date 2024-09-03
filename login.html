@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Register</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-register">
+            <div class="form-container" id="loginForm">
+                <h2>Login</h2>
+                <input type="text" id="loginUsername" placeholder="Username" required>
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                <button id="togglePassword">Show</button>
+                <button onclick="login()">Login</button>
+                <p>Don't have an account? <a href="#" onclick="toggleForms()">Register</a></p>
+            </div>
+            <div class="form-container" id="registerForm">
+                <h2>Register</h2>
+                <input type="text" id="registerUsername" placeholder="Username" required>
+                <input type="password" id="registerPassword" placeholder="Password" required>
+                <button id="togglePasswordRegister">Show</button>
+                <button onclick="register()">Register</button>
+                <p>Already have an account? <a href="#" onclick="toggleForms()">Login</a></p>
+            </div>
+        </div>
+    </div>
+
+  
+
+ <script>
+    // Initialize
+document.getElementById('loginForm').classList.add('active');
+
+// Toggle between Login and Register forms
+function toggleForms() {
+    document.getElementById('loginForm').classList.toggle('active');
+    document.getElementById('registerForm').classList.toggle('active');
+}
+
+// Show/Hide Password
+document.getElementById('togglePassword').addEventListener('click', function () {
+    const password = document.getElementById('loginPassword');
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    this.textContent = type === 'password' ? 'Show' : 'Hide';
+});
+
+document.getElementById('togglePasswordRegister').addEventListener('click', function () {
+    const password = document.getElementById('registerPassword');
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    this.textContent = type === 'password' ? 'Show' : 'Hide';
+});
+
+// Register Function
+function register() {
+    const username = document.getElementById('registerUsername').value;
+    const password = document.getElementById('registerPassword').value;
+    if (username && password) {
+        localStorage.setItem(username, password);
+        alert('Registration successful');
+        toggleForms();
+    } else {
+        alert('Please fill out all fields');
+    }
+}
+
+// Login Function
+function login() {
+    const username = document.getElementById('loginUsername').value;
+    const password = document.getElementById('loginPassword').value;
+    const storedPassword = localStorage.getItem(username);
+    if (storedPassword === password) {
+        alert('Login successful');
+        // Redirect to homepage or other functionality
+        window.location.href="index.html"
+    } else {
+        alert('Invalid username or password');
+    }
+}
+
+ </script>
+</body>
+</html>
